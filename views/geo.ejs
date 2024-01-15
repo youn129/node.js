@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="./public/style.css">
+  <title>Display Route on Map</title>
+  <style>
+    #map {
+      height: 400px;
+    }
+  </style>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <!-- <script src="turf.min.js" charset="utf-8"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+  
+
+  <%- include('nav.html') %>
+
+  <p>Welcome! This site is useful Map</p>
+  <p><%= 사용자.id %>'s page</p>
+  
+  <div id="map" style="width: 100%; height: 400px;"></div>
+  <form>
+    <label for="from">From:</label>
+    <input type="text" id="from" placeholder="출발지 입력">
+
+    <label for="to">To:</label>
+    <input type="text" id="to" placeholder="목적지 입력">
+
+    <button id="calculateButton" type="button" onclick="calculateRoute()">계산하기</button>
+  </form>
+
+  <!-- <form action="/updateUser" method="POST">
+    <input type="hidden" name="userId" value="<%= 사용자._id %>">
+    <input type="text" name="maximumHeartRate" value="<%= 사용자.maximumHeartRate %>">
+    <input type="text" name="walkingSpeed" value="<%= 사용자.walkingSpeed %>">
+    <button type="submit">저장</button>
+  </form> -->
+
+
+  <div id="output"></div>
+  <!-- <p><strong>경사도:</strong>  -->
+  <span id="slopeOut"></span></p>
+
+
+  <!-- <div id="사용자" data-사용자="<%- JSON.stringify(사용자) %>"></div>
+  <div id="maximumHeartRate" data-maximumHeartRate="<%= JSON.stringify(maximumHeartRate) %>"></div>
+  <div id="walkingSpeed" data-walkingSpeed="<%= JSON.stringify(walkingSpeed) %>"></div> -->
+
+
+  <div id="사용자" data-사용자="<%- JSON.stringify(사용자) %>"></div>
+  <div id="age" data-age="<%= parseInt(age) %>"></div>
+  <div id="averageHeartRate"data-averageHeartRate="<%= parseInt(averageHeartRate) %>"></div>
+  <div id="maximumHeartRate" data-maximumHeartRate="<%= parseInt(maximumHeartRate) %>"></div>
+  <div id="walkingSpeed" data-walkingSpeed="<%= parseInt(walkingSpeed) %>"></div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <script src="/public/geo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+
+
+  <script>
+    
+    
+    // 페이지가 로드될 때 initMap 함수 호출
+    window.addEventListener('load', initMap);
+
+    // 최대 심박수와 걷기 속도 데이터 가져오기
+    var ageElement = document.getElementById('age');
+    var averageHeartRateElement = document.getElementById('averageHeartRate');
+    var maximumHeartRateElement = document.getElementById('maximumHeartRate');
+    var walkingSpeedElement = document.getElementById('walkingSpeed');
+    var age = ageElement.getAttribute('data-age');
+    var averageHeartRate = averageHeartRateElement.getAttribute('data-averageHeartRate');
+    var maximumHeartRate = maximumHeartRateElement.getAttribute('data-maximumHeartRate');
+    var walkingSpeed = walkingSpeedElement.getAttribute('data-walkingSpeed');
+
+    // 데이터를 화면에 표시
+    ageElement.textContent = 'age: ' + age;
+    // averageHeartRateElement.textContent = 'average Heart Rate: ' + averageHeartRate;
+    maximumHeartRateElement.textContent = 'Maximum Heart Rate: ' + maximumHeartRate;
+    walkingSpeedElement.textContent = 'Walking Speed: ' + walkingSpeed;
+
+
+    
+  </script>
+
+  
+</body>
+</html>
