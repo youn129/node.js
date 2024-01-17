@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color:#5bc0de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+
+  }
+
+  .jumbotron {
+    background-color: transparent;
+    margin: 0;
+    padding: 10px;
+  }
+  .jumbotron h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .jumbotron h1,
+  .jumbotron p {
+    text-align: center;
+  }
+  .jumbotron p {
+    font-size: 1em;
+  }
+
+  #googleMap {
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+  }
+
+  #output {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px auto;
+  }
+
+  .sb-title {
+    position: relative;
+    top: -12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+  }
+
+  .sb-title-icon {
+    position: relative;
+    top: -5px;
+  }
+
+  .card-container {
+    display: flex;
+    height: 500px;
+    width: 600px;
+  }
+  
+
+  .panel {
+    background: white;
+    width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .half-input-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .half-input {
+    max-width: 120px;
+  }
+
+  #map {
+    width: 100%;
+    height: 80vh;
+    padding: 10px;
+  }
+
+
+  h1 {
+    background-color: rgb(166, 137, 255);
+    color: rgb(22, 78, 131);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 30px;
+    }
+
+  h2 {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+
+  h4 {
+    font-family: 'nanumsquare';
+  }
+
+  input {
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  input:focus::placeholder {
+    color: white;
+  }
+
+  .button-cta {
+    height: 40px;
+    width: 40%;
+    background: #3367d6;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: Roboto, sans-serif;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.48);
+    cursor: pointer;
+  }
+  
+  .chat-content {
+    height: 450px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+  .chat-content li {
+    margin-top: 10px;
+    list-style: none;
+  }
+  .text {
+    flex: 1;
+    padding: 20px;
+    overflow-y: scroll;
+    order: 2; /* 텍스트를 오른쪽으로 이동시킵니다. */
+  }
+  .text-small {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 0;
+  }
+  .chat-box {
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    float: left;
+  }
+  .mine {
+    float: right;
+  } 
+  .container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  .image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .image-slider {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+  }
+  
+  .image-slider img {
+    max-width: 100%;
+    height: auto;
+    animation: imageSlide 5s linear infinite alternate;
+  }
+
+
+  /* .image img {
+    max-width: 60%;
+    height: auto;
+    animation: imageSlide 5s linear infinite alternate;
+  } */
+
+@keyframes imageSlide {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
